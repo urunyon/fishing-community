@@ -1,16 +1,111 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FishingCommunity</title>
+    <title>Turibito AWAJI</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/a8dbaf925a.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
   </head>
 
   <body>
-    <%= yield %>
+    <header class="custom-header-color sticky-top">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container d-flex justify-content-between align-items-center">
+
+          <%= link_to root_path, class: "mx-0" do %>
+            <%= image_tag "cake_logo.png", alt: "LOGO", size: "90x65" %>
+          <% end %>
+
+
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav ml-auto">
+              <% if admin_signed_in? %>
+                <% if request.fullpath.include? "/admin" %>
+                  <li class="nav-item">
+                    <%= link_to "投稿一覧", admin_posts_path, class: "btn nav-link ml-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "会員一覧", admin_users_path, class: "btn nav-link ml-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "注文履歴一覧", admin_root_path, class: "btn nav-link ml-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ジャンル一覧", admin_genres_path, class: "btn nav-link ml-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn nav-link ml-2" %>
+                  </li>
+                <% else %>
+                  <li class="nav-item">
+                    <%= link_to "マイページ", customers_my_page_path, class: "btn nav-link ml-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "商品一覧", posts_path, class: "btn nav-link ml-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "カート", favorites_path, class: "btn nav-link ml-2" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn nav-link ml-2" %>
+                  </li>
+                <% end %>
+              <% elsif user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "マイページ", users_my_page_path, class: "btn nav-link ml-2" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "商品一覧", posts_path, class: "btn nav-link ml-2" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "カート", favorites_path, class: "btn nav-link ml-2" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn nav-link ml-2" %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "About", about_path, class: "btn nav-link ml-2" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "商品一覧", posts_path, class: "btn nav-link ml-2" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "新規登録", new_user_registration_path, class: "btn nav-link ml-2" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログイン", new_user_session_path, class: "btn nav-link ml-2" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <span class="flash"><%= notice %></span>
+    <div class="custom-body mt-3">
+      <%= yield %>
+    </div>
+
+    <footer class="custom-footer-color fixed-bottom">
+      <div class="container">
+        <div class="row no-gutters justify-content-center">
+
+          <div class="col-auto text-center pt-1">
+            <%= image_tag "cake_logo.png", alt: "LOGO", size: "75x50" %>
+          </div>
+
+          <div class="col-auto text-center pt-3">
+            <p>©CopyRight Nagano-cake.inc</p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
