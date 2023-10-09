@@ -1,0 +1,10 @@
+<div class="col-lg-2 mt-4 p-0">
+  <div class="card headline">
+    <h6 class="card-header text-center ">ジャンル検索</h6>
+    <% genres.each do |genre| %>
+      <li class="list-group-item border-0">
+        <%= link_to genre.name, items_path(genre_id: genre.id) %>
+      </li>
+    <% end %>
+  </div>
+</div>

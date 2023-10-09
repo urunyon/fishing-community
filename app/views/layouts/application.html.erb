@@ -18,7 +18,7 @@
         <div class="container d-flex justify-content-between align-items-center">
 
           <%= link_to root_path, class: "mx-0" do %>
-            <%= image_tag "cake_logo.png", alt: "LOGO", size: "90x65" %>
+            <%= image_tag "12.png", alt: "LOGO", size: "90x65" %>
           <% end %>
 
 
@@ -33,9 +33,6 @@
                     <%= link_to "会員一覧", admin_users_path, class: "btn nav-link ml-2" %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "注文履歴一覧", admin_root_path, class: "btn nav-link ml-2" %>
-                  </li>
-                  <li class="nav-item">
                     <%= link_to "ジャンル一覧", admin_genres_path, class: "btn nav-link ml-2" %>
                   </li>
                   <li class="nav-item">
@@ -43,13 +40,13 @@
                   </li>
                 <% else %>
                   <li class="nav-item">
-                    <%= link_to "マイページ", customers_my_page_path, class: "btn nav-link ml-2" %>
+                    <%= link_to "投稿一覧", customers_my_page_path, class: "btn nav-link ml-2" %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "商品一覧", posts_path, class: "btn nav-link ml-2" %>
+                    <%= link_to "ABOUT", posts_path, class: "btn nav-link ml-2" %>
                   </li>
                   <li class="nav-item">
-                    <%= link_to "カート", favorites_path, class: "btn nav-link ml-2" %>
+                    <%= link_to "会員登録", new_user_registration_path, class: "btn nav-link ml-2" %>
                   </li>
                   <li class="nav-item">
                     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn nav-link ml-2" %>
@@ -100,7 +97,7 @@
         <div class="row no-gutters justify-content-center">
 
           <div class="col-auto text-center pt-1">
-            <%= image_tag "cake_logo.png", alt: "LOGO", size: "75x50" %>
+            <%= image_tag "12.png", alt: "LOGO", size: "75x50" %>
           </div>
 
           <div class="col-auto text-center pt-3">
