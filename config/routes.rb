@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     patch 'users/information' => 'users#update'
     get 'users/confirm' => 'users#confirm'
     patch 'users/withdrawal' => 'users#withdrawal'
-    resources :posts, only: [:new, :create, :index, :show, :destroy] do
+    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
     end

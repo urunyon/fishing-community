@@ -57,26 +57,29 @@
                 <% end %>
               <% elsif user_signed_in? %>
                 <li class="nav-item">
+                  <%= link_to "いいね一覧", users_my_page_path, class: "btn nav-link ml-2" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "投稿一覧", posts_path, class: "btn nav-link ml-2" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "新規投稿", posts_path, class: "btn nav-link ml-2" %>
+                </li>
+                <li class="nav-item">
                   <%= link_to "マイページ", users_my_page_path, class: "btn nav-link ml-2" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "商品一覧", posts_path, class: "btn nav-link ml-2" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "カート", favorites_path, class: "btn nav-link ml-2" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn nav-link ml-2" %>
                 </li>
               <% else %>
                 <li class="nav-item">
+                  <%= link_to "投稿一覧", posts_path, class: "btn nav-link ml-2" %>
+                </li>
+                <li class="nav-item">
                   <%= link_to "About", about_path, class: "btn nav-link ml-2" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "商品一覧", posts_path, class: "btn nav-link ml-2" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "新規登録", new_user_registration_path, class: "btn nav-link ml-2" %>
+                  <%= link_to "会員登録", new_user_registration_path, class: "btn nav-link ml-2" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "ログイン", new_user_session_path, class: "btn nav-link ml-2" %>
@@ -101,7 +104,7 @@
           </div>
 
           <div class="col-auto text-center pt-3">
-            <p>©CopyRight Nagano-cake.inc</p>
+            <p>©CopyRight TuribitoAWAJI.inc</p>
           </div>
 
         </div>
