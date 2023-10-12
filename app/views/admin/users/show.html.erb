@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <h3 class="back"><strong><%= (@user.name + @user.nickname) %>さんの会員詳細</strong></h3>
+    <table class="table table-borderless">
+      <tr>
+        <td>会員ID</td>
+        <td><%= @user.id %></td>
+      </tr>
+      <tr>
+        <td>氏名</td>
+        <td><%= (@user.name) %></td>
+      </tr>
+      <tr>
+        <td>ニックネーム</td>
+        <td><%= (@user.nickname) %></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td>会員ステータス</td>
+        <td><% if @user.is_deleted %>
+              <p class="text-secondary">退会済</p>
+            <% else %>
+              <P class="text-success">有効</P>
+             <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <span class="pr-5"><%= link_to "編集する", edit_admin_user_path(@user), class:"btn btn-success" %></span>
+          <span class="pl-5"><%= link_to "投稿履歴一覧を見る", admin_root_path, class:"btn btn-primary" %></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
