@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <% posts.each do |post| %>
+      <div class="col-sm-3 mt-3 px-1">
+        <div class="card h-100 border-0">
+          <%= link_to post_path(post) do %>
+            <%= image_tag post.get_post_image(500, 500), size: "150x150", class: "w-100 rounded" %>
+          <% end %>
+          <div class="card-body">
+            <div class="card-title">
+              <h6>
+                <%= link_to post.title post_path(post) %>
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
