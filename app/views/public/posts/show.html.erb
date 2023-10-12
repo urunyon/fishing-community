@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row mx-auto">
+    <%= render 'public/homes/genre', genres: @genres %>
+    <div class="col-lg-5 mt-4 pl-5 text-center">
+      <% if @post.errors.any? %>
+        <%= @post.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= image_tag @post.get_post_image(500, 500), size: "350x250", class: "rounded" %>
+    </div>
+    </div>
+  </div>
+</div>

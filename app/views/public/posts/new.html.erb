@@ -1,0 +1,66 @@
+<div class="container">
+ <div class="row">
+  <% if @post.errors.any? %>
+    <ul class="alert alert-danger" role="alert">
+      <h6 class="alert-heading">
+        <%= @post.errors.count %>件のエラーが発生しました
+      </h6>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="col-md-8 mx-auto">
+    <h3 class="mt-8 mb-5"><span class="back"><strong>新規投稿</strong></span></h3>
+  </div>
+ </div>
+
+ <div class="outer">
+  <div class="col-xs-12">
+   <%= form_with model: @post, url:'/posts/create', local: true do |f| %>
+    <div class="inner">
+     <div class="form-group col-xs-9">
+      <%= f.label :掲載画像, class:"col-sm-4" %>
+      <%= f.file_field :post_image, accept: "image/*" %>
+     </div>
+
+     <div class="form-group col-xs-9">
+      <%= f.label :タイトル, class:"col-sm-4" %>
+      <%= f.text_field :title, placeholder: "title", size: "30" %>
+     </div>
+
+     <div class="form-group col-xs-9">
+      <%= f.label :投稿内容, class:"col-sm-4 control-label" %>
+      <%= f.text_area :body, placeholder: "ここに投稿内容を記述します", size: "30x5" %>
+     </div>
+
+     <div class="form-group col-xs-9">
+      <%= f.label :ジャンル, class:"col-sm-4 control-label" %>
+      <%= f.collection_select :genre_id, @genres, :id, :genre_name, include_blank: "--選択して下さい--" %>
+     </div>
+
+    </div>
+    <div class="col-xs-9 col-xs-offset-4">
+     <%= f.submit '新規投稿', class: "btn btn-success" %>
+    </div>
+   <% end %>
+  </div>
+ </div>
+</div>
+
+<style>
+ .outer {
+  text-align: center;
+ }
+
+ .inner {
+  display: inline-block;
+  text-align: left;
+ }
+
+ .form-group {
+  width: 500px;
+  white-space: nowrap;
+ }
+
+</style>

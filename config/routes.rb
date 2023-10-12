@@ -9,16 +9,16 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    resources :posts do
+      resource :favorites, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
+    end
+    resources :users, only: [:show, :edit, :update]
     get 'users/my_page' => 'users#show'
     get 'users/information/edit' => 'users#edit'
     patch 'users/information' => 'users#update'
     get 'users/confirm' => 'users#confirm'
     patch 'users/withdrawal' => 'users#withdrawal'
-    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
-      resource :favorites, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
-    end
-    resources :users, only: [:show, :edit, :update]
   end
 
   # 管理者用

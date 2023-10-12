@@ -11,7 +11,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "投稿に成功しました。"
-      redirect_to public_post_path(@post)
+      redirect_to post_path(@post)
     else
       @genres = Genre.all
       render :new
