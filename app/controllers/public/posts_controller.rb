@@ -1,12 +1,12 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
-  
+
   def new
     @post = Post.new
     @genres = Genre.all
   end
-  
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
@@ -18,7 +18,7 @@ class Public::PostsController < ApplicationController
       render :new
     end
   end
-  
+
   def index
     @genres = Genre.all
     if params[:genre_id]
@@ -36,7 +36,7 @@ class Public::PostsController < ApplicationController
     @genres = Genre.all
     @comment = Comment.new
   end
-  
+
   def edit
     @post = Post.find(params[:id])
     @genres = Genre.all
@@ -52,7 +52,7 @@ class Public::PostsController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @post.destroy
     redirect_to public_posts_path
@@ -65,5 +65,5 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body, :genre_id, :post_image)
   end
-  
+
 end

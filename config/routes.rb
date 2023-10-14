@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    resources :users, only: [:index, :show, :edit, :update]
-    get 'users/confirm' => 'users#confirm'
-    patch 'users/withdrawal' => 'users#withdrawal'
+    resources :users
+    resources :users do
+      get 'confirm', on: :member
+      patch 'withdrawal', on: :member
+    end
     resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
