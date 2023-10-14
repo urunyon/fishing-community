@@ -21,6 +21,18 @@
           <span class="pl-5"><%= link_to "投稿履歴一覧を見る", root_path, class:"btn btn-primary" %></span>
         </td>
       </tr>
+      <% @posts.each do |post| %>
+        <td>
+          <%= link_to post_path(post.id) do %>
+            <%= image_tag post.get_image %>
+          <% end %>
+          <p>投稿画像：<%= image_tag post.user.get_profile_image(100,100) %></p>
+          <p>ニックネーム：<%= post.user.nickname %></p>
+          <p>タイトル：<%= post.title %></p>
+          <p>内容：<%= post.body %></p>
+          <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
+        </td>
+      <% end %>
     </table>
   </div>
 </div>

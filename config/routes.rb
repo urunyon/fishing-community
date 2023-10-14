@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # 顧客用
+  # 会員用
   # URL /customers/sign_in ...
   devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -9,11 +9,10 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    resources :users, only: [:index, :show, :edit, :update] do
-     get 'confirm'
-     patch 'users/withdrawal' => 'users#withdrawal'
-    end
-    resources :posts do
+    resources :users, only: [:index, :show, :edit, :update]
+    get 'users/confirm' => 'users#confirm'
+    patch 'users/withdrawal' => 'users#withdrawal'
+    resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
@@ -28,8 +27,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'homes#top'
     resources :posts, only: [:index, :show, :destroy]
+      resources :comments, only: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-end
+  end
