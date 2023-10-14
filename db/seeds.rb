@@ -13,6 +13,7 @@ Admin.create!(
 )
  #ユーザーテストアカウント
 User.create!(
+ user_id: 1,
  name: '釣人　太郎',
  nickname: 'エギキング',
  email: 'user@gmail.com',

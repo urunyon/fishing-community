@@ -1,0 +1,16 @@
+<div class="container pt-5">
+  <div class="row pt-5">
+    <div class="col-lg-10 mx-auto">
+      <h3 class="text-center"><storng>本当に退会しますか?</stong></h3>
+
+      <p class="text-center mt-3">退会すると、会員登録情報が削除されます。<br>
+         また、同じメールアドレスでの再登録も不可能となります。<br>
+         退会する場合は、「退会する」をクリックしてください。
+      </p>
+      <div class="text-center">
+        <%= link_to "退会しない", user_path(current_user), class:"btn btn-primary" %>
+        <%= link_to "退会する", users_withdrawal_path, method: :patch, class:"btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
