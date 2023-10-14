@@ -2,7 +2,7 @@ ja:
   activerecord:
     errors:
       models:
-        customer:
+        user:
           attributes:
             email:
               blank: を入力してください
@@ -15,7 +15,9 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        email: Eメール
+        email: メールアドレス
+        name: 氏名
+        nickname: ニックネーム
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
@@ -31,16 +33,6 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
-      customer:
-        email: メールアドレス
-        password: パスワード
-        last_name: 姓
-        first_name: 名
-        last_name_kana: 姓（カナ）
-        first_name_kana: 名（カナ）
-        post_code: 郵便番号
-        address: 住所
-        phone_number: 電話番号
     models:
       user: ユーザー
   devise:
