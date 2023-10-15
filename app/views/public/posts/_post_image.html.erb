@@ -9,7 +9,9 @@
           <div class="card-body">
             <div class="card-title">
               <h6>
-                <%= link_to post.title post_path(post) %>
+                <%= link_to post_path(post) do %>
+                  <%= post.title %>
+                <% end %>
               </h6>
             </div>
           </div>
