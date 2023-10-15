@@ -26,16 +26,19 @@
           </p>
         <% end %>
         <p>コメント件数：<%= @post.comments.count %></p>
-        <% @post.comments.each do |comment| %>
-          <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
-          <%= comment.user.name %>
-          <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-        <% end %>
-      </div>
-      <div>
+        <div>
         <%= form_with model: [@post, @comment] do |f| %>
           <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
           <%= f.submit "送信する" %>
+        <% end %>
+        </div>
+        <% @post.comments.each do |comment| %>
+          <p><%#= image_tag post_comment.user.get_profile_image(100,100) %></p>
+          <%= comment.user.name %>
+          <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+          <% if current_user == comment.user %>
+            <%= link_to "削除", post_comment_path(@post.comments), method: :delete %>
+          <% end %>
         <% end %>
       </div>
     </div>

@@ -97,13 +97,34 @@
     <div class="custom-body mt-3">
       <%= yield %>
     </div>
-
-    <footer class="custom-footer-color fixed-bottom">
+    
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <p>善良な市民同士で無差別に食欲を煽るSNS</p>
+            <%= image_tag "12.png", alt: "LOGO", size: "75x50" %>
+          </div>
+          <div class="col-md-8">
+            <h6 class="text-white mt-2 mb-3">Link</h6>
+            <ul class="p-0 list-unstyled">
+              <li>
+                <a href="" title="About" class="text-white-50">会社概要</a>
+              </li>
+              <li>
+                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--<footer class="custom-footer-color fixed-bottom">
       <div class="container">
         <div class="row no-gutters justify-content-center">
 
           <div class="col-auto text-center pt-1">
-            <%= image_tag "12.png", alt: "LOGO", size: "75x50" %>
+            <%#= image_tag "12.png", alt: "LOGO", size: "75x50" %>
           </div>
 
           <div class="col-auto text-center pt-3">
@@ -112,7 +133,7 @@
 
         </div>
       </div>
-    </footer>
+    </footer>-->
     </div>
   </body>
 </html>
