@@ -23,9 +23,6 @@
       </tr>
       <% @posts.each do |post| %>
         <td>
-          <%= link_to post_path(post) do %>
-            <%= image_tag post.get_post_image(500, 500), size: "150x150", class: "w-100 rounded" %>
-          <% end %>
           <p>投稿画像：<%= link_to post_path(post) do %>
             <%= image_tag post.get_post_image(500, 500), size: "150x150", class: "w-100 rounded" %>
           <% end %></p>

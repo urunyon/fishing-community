@@ -16,6 +16,7 @@ class Admin::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @genres = Genre.all
+    @comment = Comment.all
   end
   
   def edit

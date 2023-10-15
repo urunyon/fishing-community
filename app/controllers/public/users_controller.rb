@@ -12,10 +12,9 @@ class Public::UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update!(user_params)
+    if @user.update(user_params)
       flash[:notice] = "編集内容の保存に成功しました"
       redirect_to user_path
-
     else
       render :edit
     end
