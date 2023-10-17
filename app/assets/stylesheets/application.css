@@ -13,23 +13,12 @@
  *= require_tree .
  *= require_self
  */
-body,
+body {
+ padding-top: 70px;
+}
+
 #wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-.gradient { 
-  background:radial-gradient(#fff, #56C500); 
-  height: 500px;
-  border: 1px solid #333;
-}
-
-header {
-  margin-top: auto;
-}
- 
-footer {
-  margin-top: auto;
 }

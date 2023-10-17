@@ -15,7 +15,14 @@
        <h3><strong><%= @post.title %></strong></h3>
        <h4>投稿内容</h4>
         <p><%= simple_format(@post.body)%></p>
-      </div> 
+        <p>
+          <% if @post.user == current_user %>
+           <%= link_to post_path(@post), method: :delete do %>
+            <%= "投稿削除" %>
+           <% end %>
+          <% end %>
+        </P>
+      </div>
       <div>
          <% if @post.favorited_by?(current_user) %>
           <p>
