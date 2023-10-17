@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     resources :users
     resources :users do
+      get 'favorites', on: :member
       get 'confirm', on: :member
       patch 'withdrawal', on: :member
     end

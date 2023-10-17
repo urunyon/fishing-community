@@ -31,10 +31,26 @@ class Public::UsersController < ApplicationController
     flash[:notice] = "ご利用ありがとうございました"
     redirect_to root_path
   end
+  
+  def favorites
+    @user = User.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+    @post = Post.find(params[:id])
+    @posts = Post.page(params[:page]).per(8)
+  end
 
   private
    def user_params
      params.require(:user).permit(:name, :nickname, :email, :is_deleted)
    end
+   
+   def post_params
+    params.require(:post).permit(:title, :body, :genre_id, :post_image)
+   end
 
+   def set_user
+    @user = User.find(params[:id])
+   end
+  
 end
