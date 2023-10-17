@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mx-auto">
-    <%= render 'public/homes/genre', genres: @genres %>
+    <%= render 'admin/homes/genre', genres: @genres %>
     <div class="col-lg-5 mt-4 pl-5 text-center">
       <% if @post.errors.any? %>
         <%= @post.errors.count %>件のエラーが発生しました
@@ -20,6 +20,7 @@
           <p><%#= image_tag post_comment.user.get_profile_image(100,100) %></p>
           <%= comment.user.name %>
           <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+          <%= link_to "削除", admin_comment_path(comment.post,comment), method: :delete %>
         <% end %>
       </div>
     </div>

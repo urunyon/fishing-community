@@ -94,10 +94,9 @@
       </nav>
     </header>
     <span class="flash"><%= notice %></span>
-    <div class="custom-body mt-3">
+    <div class=" gradient custom-body mt-3">
       <%= yield %>
     </div>
-    
     <footer class="bg-dark text-white pt-5 pb-4">
       <div class="container">
         <div class="row no-gutters">
@@ -137,3 +136,11 @@
     </div>
   </body>
 </html>
+
+<style>
+.gradient { 
+	background:radial-gradient(#fff, #56C500); 
+	height: 500px;
+	border: 1px solid #333;
+}
+</style>

@@ -11,6 +11,11 @@
         </ul>
       <% end %>
       <%= image_tag @post.get_post_image(500, 500), size: "350x250", class: "rounded" %>
+      <div class="col-lg-5 mt-4 pl-4">
+       <h3><strong><%= @post.title %></strong></h3>
+       <h4>投稿内容</h4>
+        <p><%= simple_format(@post.body)%></p>
+      </div> 
       <div>
          <% if @post.favorited_by?(current_user) %>
           <p>
@@ -34,10 +39,10 @@
         </div>
         <% @post.comments.each do |comment| %>
           <p><%#= image_tag post_comment.user.get_profile_image(100,100) %></p>
-          <%= comment.user.name %>
+          <%= comment.user.nickname %>
           <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
           <% if current_user == comment.user %>
-            <%= link_to "削除", post_comment_path(@post.comments), method: :delete %>
+            <%= link_to "削除", post_comment_path(comment.post,comment), method: :delete %>
           <% end %>
         <% end %>
       </div>
