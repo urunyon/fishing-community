@@ -8,12 +8,11 @@
       </div>
       <table class="table">
         <tbody>
-          <% @favorite_posts.each do %>
           <tr>
             <td>
               <div class="container">
                 <div class="row">
-                  <% @posts.each do |post| %>
+                  <% @favorite_posts.each do |post| %>
                     <div class="col-sm-3 mt-3 px-1">
                       <div class="card h-100 border-0">
                         <%= link_to post_path(post) do %>
@@ -35,7 +34,6 @@
               </div>
             </td>
           </tr>
-          <% end %>
         </tbody>
       </table>
     </div>
