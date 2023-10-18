@@ -24,6 +24,7 @@ class Public::UsersController < ApplicationController
     @user = current_user
   end
 
+#ユーザーの退会用
   def withdrawal
     @user = User.find(current_user.id)
     @user.update(is_deleted: true)
@@ -31,7 +32,8 @@ class Public::UsersController < ApplicationController
     flash[:notice] = "ご利用ありがとうございました"
     redirect_to root_path
   end
-  
+
+#いいね一覧表示用
   def favorites
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
@@ -41,16 +43,9 @@ class Public::UsersController < ApplicationController
   end
 
   private
+
    def user_params
      params.require(:user).permit(:name, :nickname, :email, :is_deleted)
    end
    
-   def post_params
-    params.require(:post).permit(:title, :body, :genre_id, :post_image)
-   end
-
-   def set_user
-    @user = User.find(params[:id])
-   end
-  
 end
