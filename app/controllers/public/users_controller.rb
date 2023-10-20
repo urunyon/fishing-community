@@ -1,6 +1,5 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
@@ -38,7 +37,7 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = Post.find(favorites)
-    @post = Post.find(params[:id])
+    #@post = Post.find(params[:id])
     @posts = Post.page(params[:page]).per(8)
   end
 
