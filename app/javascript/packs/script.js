@@ -1,10 +1,10 @@
-const API_KEY = "8cb3137a3e2cd63234b44645432d710f";
 
 $(function(){
   $('#btn').on('click', function() {
     // 入力された都市名でWebAPIに天気情報をリクエスト
+    key = $('#key').html();
     $.ajax({
-      url: "https://api.openweathermap.org/data/2.5/weather?q=" + $('#cityname').val() + "&units=metric&appid=" + API_KEY,
+      url: "https://api.openweathermap.org/data/2.5/weather?q=" + $('#cityname').val() + "&units=metric&appid=" + key,
       dataType : 'jsonp',
     }).done(function (data){
       //通信成功
@@ -21,8 +21,8 @@ $(function(){
       // 天気
       $('#weather').text(data.weather[0].main);
       // 天気アイコン
-      $('img').attr("src","http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
-      $('img').attr("alt",data.weather[0].main);
+      $('#img').attr("src","http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+      $('#img').attr("alt",data.weather[0].main);
     }).fail(function (data) {
       //通信失敗
       alert('通信に失敗しました。');      });

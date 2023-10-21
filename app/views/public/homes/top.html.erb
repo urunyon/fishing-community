@@ -1,12 +1,17 @@
 <div class="container">
   <div class="row">
+    <%= render 'public/homes/weather' %>
     <%= render 'genre', genres: @genres %>
     <div class="col-lg-10">
       <%= render 'top_image' %>
-      <h3 class="pt-4 pl-4">新着投稿</h3>
-      <div class="right">
-        <%= link_to "全ての投稿を見る >", posts_path %>
-      </div>
+      <h3 class="pt-4 pl-4">釣り人～淡路～</h3>
+      <p>
+        こちらは、淡路島での釣果情報を共有し、<br>
+        釣りの活性化を目的とした、コミュニティサイトです。<br>
+        投稿の一覧はログインなしでも閲覧可能ですが、<br>
+        すべての機能を利用する際は<%= link_to 'こちら',new_user_session_path %>からログインを<br>
+        行ってください。
+      </p>
     </div>
   </div>
 </div>

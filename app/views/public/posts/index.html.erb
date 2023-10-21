@@ -11,9 +11,10 @@
           <% else %>
           <h2>投稿一覧 (全 <%= @posts_all.count %> 件)</h2>
           <% end %>
+          
         </div>
+        <%= render 'public/posts/post_image', posts: @posts %>
       </div>
-      <%= render 'public/posts/post_image', posts: @posts %>
     </div>
   <%= paginate @posts, class: "text-center" %>
   </div>
