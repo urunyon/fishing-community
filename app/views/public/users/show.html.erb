@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
-    <h3 class="back"><strong><%= (@user.nickname) %>さんの会員詳細</strong></h3>
-    <table class="table table-borderless">
+    <div class="col-3"></div>
+    <div class="col-lg-6 mt-3 justify-content-center">
+    <h3 class="back text-center"><strong><%= (@user.nickname) %>さんの会員詳細</strong></h3>
+    <table class="table table-borderless text-center">
       <tr>
         <td>氏名</td>
         <td><%= @user.name %></td>
@@ -17,13 +19,13 @@
       <tr>
         <td></td>
         <td>
-          <span class="pr-5"><%= link_to "編集する", edit_user_path(@user), class:"btn btn-success" %></span>
+          <span class="px-5"><%= link_to "編集する", edit_user_path(@user), class:"btn btn-success" %></span>
         </td>
       </tr>
+      </table>
       <% @posts.each do |post| %>
-        <td>
           <p>投稿画像：<%= link_to post_path(post) do %>
-            <%= image_tag post.get_post_image(500, 500), size: "150x150", class: "w-100 rounded" %>
+            <%= image_tag post.get_post_image(500, 500), size: "300x300", class:"card-img-top"; %>
           <% end %></p>
           <% if post.favorited_by?(current_user) %>
           <p>
@@ -42,8 +44,8 @@
           <p>タイトル：<%= post.title %></p>
           <p>内容：<%= post.body %></p>
           <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
-        </td>
       <% end %>
-    </table>
+     </div>
+     <div class="col-3"></div>
   </div>
 </div>

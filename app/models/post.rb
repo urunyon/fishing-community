@@ -8,6 +8,7 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true, length: { maximum: 150 }
+  validates :post_image, presence: true
 
   def get_post_image(width, height)
     unless post_image.attached?

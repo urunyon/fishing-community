@@ -1,9 +1,11 @@
 <details class="details js-details">
-  <summary class="details-summary"><span class="btn"></span>ジャンル一覧▼</summary>
+  <summary class="details-summary">ジャンル一覧▼</summary>
   <div class="details-content">
     <% genres.each do |genre| %>
-      <li class="list-group-item border-top:1px solid #666;", style="background-color: #A7F1FF;">
+      <li class="list-group-item border-top:1px solid #666;", style="background-color: #ffff56;">
+      	<font size="5" face="Comic Sans MS">
         <%= link_to genre.genre_name, posts_path(genre_id: genre.id) %>
+        </font>
       </li>
     <% end %>
   </div>
@@ -27,11 +29,11 @@
 	position: relative;
 	display: block;
 	padding: 20px;
-	color: #fff;
+	color: #0053f9;
 	font-size: 24px;
 	font-weight: bold;
 	text-align: center;
-	background-color: #b2e4e2;
+	background-color: #cedb41;
 	&:hover {
 		cursor: pointer;
 		opacity: 0.8;

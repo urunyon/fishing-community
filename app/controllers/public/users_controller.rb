@@ -39,6 +39,7 @@ class Public::UsersController < ApplicationController
     @favorite_posts = Post.find(favorites)
     #@post = Post.find(params[:id])
     @posts = Post.page(params[:page]).per(8)
+    @genres = Genre.all
   end
 
   private
