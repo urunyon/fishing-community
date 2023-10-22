@@ -46,7 +46,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = "投稿情報を変更しました"
-      redirect_to public_post_path(@post)
+      redirect_to post_path(@post)
     else
       @genres = Genre.all
       render :edit
@@ -56,6 +56,13 @@ class Public::PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to public_posts_path
+  end
+  
+  def ensure_correct_user
+    @post = Post.find_by(id: params[:id])
+    return unless @post.user_id != current_user.id
+
+    redirect_to posts_path
   end
 
 
