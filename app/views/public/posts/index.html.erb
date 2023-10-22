@@ -1,21 +1,22 @@
-<div class="container">
-  <div class="row">
+<div class='row'>
+  <div class='col-lg-3 mt-3 pl-5'>
+    <h2 class="text-center">天気情報</h2>
     <%= render 'public/homes/weather' %>
+    <h2 class="text-center">ジャンル</h2>
     <%= render 'public/homes/genre', genres: @genres %>
-    <div class="col-lg-10">
-      <div class="container">
-        <div class="row">
-
-          <% if params[:genre_id] %>
-          <h2><%= @genre.genre_name %> 一覧 (全 <%= @posts_all.count %> 件)</h2>
-          <% else %>
-          <h2>投稿一覧 (全 <%= @posts_all.count %> 件)</h2>
-          <% end %>
-          
-        </div>
-        <%= render 'public/posts/post_image', posts: @posts %>
-      </div>
-    </div>
-  <%= paginate @posts, class: "text-center" %>
   </div>
+
+  <div class='col-lg-9 mt-3 pr-3'>
+    <% if params[:genre_id] %>
+          <h2 class="text-center"><%= @genre.genre_name %> 一覧 (全 <%= @posts_all.count %> 件)</h2>
+    <% else %>
+          <h2 class="text-center">投稿一覧 (全 <%= @posts_all.count %> 件)</h2>
+    <% end %>
+    <div class="text-center">
+    <%= render 'public/searches/search' %>
+    </div>
+    <%= render 'public/posts/post_image', posts: @posts %>
+  </div>
+  
+
 </div>

@@ -12,7 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
   </head>
 
-  <body class="d-flex flex-column vh-100">
+  <body class="d-flex flex-column">
+   <div id="wrap">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container ">
@@ -96,9 +97,8 @@
       </nav>
     </header>
     
-    <span class="flash"><%= notice %></span>
     <div class=" gradient custom-body ">
-      <%= render 'public/searches/search' %>
+     <span class="flash"><%= notice %></span>
       <%= yield %>
     </div>
     
@@ -123,6 +123,7 @@
         </div>
       </div>
     </footer>
+    </div>
   </body>
 </html>
 
@@ -130,5 +131,21 @@
 .gradient { 
 	background:radial-gradient(#fff, #56C500); 
 	border: 1px solid #333;
+	min-height: 70vh;
+}
+
+#wrap {
+  overflow: hidden;
+}
+
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+ 
+footer {
+  margin-top: auto;
 }
 </style>

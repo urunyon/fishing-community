@@ -1,12 +1,54 @@
-<div class="col-lg-2 mt-10 p-0">
-  <div class="card headline">
-    <div style="background-color: #A7F1FF;">
-    <h6 class="card-header text-center">ジャンル検索</h6>
+<details class="details js-details">
+  <summary class="details-summary"><span class="btn"></span>ジャンル一覧▼</summary>
+  <div class="details-content">
     <% genres.each do |genre| %>
-      <li class="list-group-item border-0">
+      <li class="list-group-item border-top:1px solid #666;", style="background-color: #A7F1FF;">
         <%= link_to genre.genre_name, posts_path(genre_id: genre.id) %>
       </li>
     <% end %>
-    </div>
   </div>
-</div>
+</details>
+
+
+
+
+
+<style>
+  
+.details {
+	border-top: 2px solid #00a5a0;
+	border-left: 2px solid #00a5a0;
+	border-right: 2px solid #00a5a0;
+	&:last-of-type {
+		border-bottom: 2px solid #00a5a0;
+	} 
+}
+.details-summary {
+	position: relative;
+	display: block;
+	padding: 20px;
+	color: #fff;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #b2e4e2;
+	&:hover {
+		cursor: pointer;
+		opacity: 0.8;
+	}
+}
+
+.details-content {
+  background-color: #A7F1FF;
+	p {
+		margin: 0 0 20px;
+		color: #000;
+		font-size: 18px;
+		text-align: left;
+		&:last-of-type {
+			margin: 0 0 0;
+		}
+	}
+}
+
+</style>

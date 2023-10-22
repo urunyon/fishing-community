@@ -25,6 +25,6 @@ $(function(){
       $('#img').attr("alt",data.weather[0].main);
     }).fail(function (data) {
       //通信失敗
-      alert('通信に失敗しました。');      });
+      alert('天気情報の取得に失敗しました。都市名の入力内容に誤りがないか確認してください。');      });
   });
 });
