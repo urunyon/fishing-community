@@ -5,8 +5,10 @@
     <h3 class="back text-center"><strong><%= (@user.nickname) %>さんの会員詳細</strong></h3>
     <table class="table table-borderless text-center">
       <tr>
+        <% if @user == current_user %>
         <td>氏名</td>
         <td><%= @user.name %></td>
+        <% end %>
       </tr>
       <tr>
         <td>ニックネーム</td>
@@ -19,7 +21,9 @@
       <tr>
         <td></td>
         <td>
+          <% if @user == current_user %>
           <span class="px-5"><%= link_to "編集する", edit_user_path(@user), class:"btn btn-success" %></span>
+          <% end %>
         </td>
       </tr>
       </table>

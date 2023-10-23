@@ -2,12 +2,27 @@
 <h3 class="back pb-2"><strong>会員一覧</strong></h3>
   <div class="row">
     <table class="table table_bordered">
+      <thead class="bg-light">
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>会員ステータス</th>
+        </tr>
+      </thead>
       <tbody>
         <% @users.each do |user| %>
           <tr>
             <td><%= user.id %></td>
-            <td><%= link_to nickname, user_path(user.id) %></td>
+            <td><%= link_to (user.name), user_path(user.id) %></td>
             <td><%= user.email %></td>
+            <td>
+              <% if user.is_deleted %>
+                <p class="text-secondary">退会済</p>
+              <% else %>
+                <P class="text-success">有効</P>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
