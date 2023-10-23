@@ -16,20 +16,10 @@
     <%= render 'public/searches/search' %>
     </div>
     <%= render 'public/posts/post_image', posts: @posts %>
+    <div class="text-center"><%= paginate @posts %></div>
+            
   </div>
+  
   
 
 </div>
-
-
-<style>
-h2 {
-
-font-famiry: Meiryo;
-
-font-size: 32px;
-
-font-weight: normal;
-
-}
-</style>
