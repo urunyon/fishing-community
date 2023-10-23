@@ -24,7 +24,7 @@
         <p>
           <% if @post.user == current_user %>
            <%= link_to "投稿編集", edit_post_path(@post) %>
-           |
+           | 
            <%= link_to post_path(@post), method: :delete, data: { confirm: '投稿を削除しますか？' } do %>
             <%= "投稿削除" %>
            <% end %>
@@ -32,19 +32,9 @@
         </P>
       </div>
       <div class="col-lg-3 mt-3 ">
-         <% if @post.favorited_by?(current_user) %>
-          <p>
-            <%= link_to post_favorites_path(@post), method: :delete do %>
-              ♥<%= @post.favorites.count %> いいね
-            <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to post_favorites_path(@post), method: :post do %>
-              ♡<%= @post.favorites.count %> いいね
-            <% end %>
-          </p>
-        <% end %>
+        <span id="favorite_buttons_<%= @post.id %>">
+          <%= render "public/favorites/post_favorite", post: @post %>
+        </span>
         <p>コメント件数：<%= @post.comments.count %></p>
         <div>
         <%= form_with model: [@post, @comment] do |f| %>
