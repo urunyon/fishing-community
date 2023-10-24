@@ -2,14 +2,40 @@
 <% post.comments.each do |comment| %>
   <% comment_user = comment.user %>
     <div class="d-flex">
-     <div class="mb-3 ml-3">
-        <p>コメント者：<%= comment.user.nickname %></p>
-        <p>コメント日：<%= comment.created_at.strftime('%Y/%m/%d') %></p>
-        <P>コメント：<%= comment.comment %></p>
-        <% if current_user == comment_user %>
-    	   <%= link_to '削除', post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %>
-  	    <% end %>
-     </div>
+
+      <table class="table  text-center mt-3 mb-5">
+        <tr>
+          <th>コメント者：</th>
+          <td><%= comment.user.nickname %></td>
+        </tr> 
+        <tr>
+          <th>コメント日：</th>
+          <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <th>コメント：</th>
+          <td><%= comment.comment %></td>
+        </tr>
+        <tr>
+          <td>
+         <% if current_user == comment_user %>
+    	    <%= link_to '削除', post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %>
+  	     <% end %>
+  	     </td>
+        </tr>
+      </table>
+
     </div>
   <% end %>
 </div>
+
+
+<style media="screen">
+    th,td{
+      border:1px #333 solid; 
+      padding:8px 16px; //余白をつける
+    }
+    table{
+      border-collapse: collapse;
+    }
+  </style>

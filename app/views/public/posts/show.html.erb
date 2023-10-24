@@ -18,7 +18,7 @@
       <h2>投稿詳細</h2>
       <%= image_tag @post.get_post_image(500, 500), size: "300x300", class: "rounded" %>
        <h3>タイトル：<strong><%= @post.title %></strong></h3>
-       <p>投稿者：<%= @post.user.nickname %></p>
+       <p>投稿者：<%= link_to @post.user.nickname, user_path(@post.user) %></p>
        <h4>投稿内容</h4>
         <p><%= simple_format(@post.body)%></p>
         <p>

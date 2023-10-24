@@ -8,6 +8,7 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    @user_posts = @posts.page(params[:page]).per(10)
   end
 
   def edit
@@ -42,7 +43,6 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favorite_posts = Post.find(favorites)
-    #@post = Post.find(params[:id])
     @posts = Post.page(params[:page]).per(8)
     @genres = Genre.all
   end

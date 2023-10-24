@@ -6,6 +6,7 @@
         <tr>
           <th>会員ID</th>
           <th>氏名</th>
+          <th>ニックネーム</th>
           <th>メールアドレス</th>
           <th>会員ステータス</th>
         </tr>
@@ -15,6 +16,7 @@
           <tr>
             <td><%= user.id %></td>
             <td><%= link_to (user.name), admin_user_path(user.id) %></td>
+            <td><%= user.nickname %></td>
             <td><%= user.email %></td>
             <td>
               <% if user.is_deleted %>

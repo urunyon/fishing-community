@@ -6,50 +6,41 @@
     <table class="table table-borderless text-center">
       <tr>
         <% if @user == current_user %>
-        <td>氏名</td>
+        <th>氏名</th>
         <td><%= @user.name %></td>
         <% end %>
       </tr>
       <tr>
-        <td>ニックネーム</td>
+        <th>ニックネーム</th>
         <td><%= @user.nickname %></td>
       </tr>
       <tr>
-        <td>メールアドレス</td>
+        <% if @user == current_user %>
+        <th>メールアドレス</th>
         <td><%= @user.email %></td>
+        <% end %>
       </tr>
       <tr>
-        <td></td>
+        <th></th>
         <td>
           <% if @user == current_user %>
-          <span class="px-5"><%= link_to "編集する", edit_user_path(@user), class:"btn btn-success" %></span>
+          <span class="px-8"><%= link_to "編集する", edit_user_path(@user), class:"btn btn-success" %></span>
           <% end %>
         </td>
       </tr>
       </table>
-      <% @posts.each do |post| %>
-          <p>投稿画像：<%= link_to post_path(post) do %>
-            <%= image_tag post.get_post_image(500, 500), size: "300x300", class:"card-img-top"; %>
-          <% end %></p>
-          <% if post.favorited_by?(current_user) %>
-          <p>
-            <%= link_to post_favorites_path(post), method: :delete do %>
-              ♥<%= post.favorites.count %> いいね
-            <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to post_favorites_path(post), method: :post do %>
-              ♡<%= post.favorites.count %> いいね
-            <% end %>
-          </p>
-        <% end %>
-          <p>ニックネーム：<%= post.user.nickname %></p>
-          <p>タイトル：<%= post.title %></p>
-          <p>内容：<%= post.body %></p>
-          <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
-      <% end %>
-     </div>
-     <div class="col-3"></div>
+    </div>
+    <div class="col-3"></div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+     <div class='col-lg-12 mt-3'>
+        <%= render 'public/posts/post_image', posts: @posts %>
+      <div class="text-center"><%= paginate @user_posts %></div>
+    </div>
+  </div>
+</div>
+
+
