@@ -9,8 +9,8 @@
 
         <table class="table table-borderless">
           <tr>
-            <td class="d-flex justify-content-between">
-              氏名<span>(氏名は公開されません)</span>
+            <td>
+              氏名　<span>(氏名は公開されません)</span>
             </td>
             <td>
                <%= f.text_field :name, autofocus: true, placeholder: "釣人　太郎" %>
@@ -19,7 +19,7 @@
 
           <tr>
             <td >
-              ニックネーム<span>(公開する名前)</span>
+              ニックネーム　(公開する名前)
             </td>
             <td>
               <%= f.text_field :nickname, placeholder: "エギキング" %>
@@ -27,7 +27,7 @@
           </tr>
 
           <tr>
-            <td>メールアドレス</td>
+            <td>メールアドレス　(メールアドレスは公開されません)</td>
             <td>
               <%= f.text_field :email, placeholder: "sample@example.com" %>
             </td>
@@ -41,7 +41,7 @@
           </tr>
 
           <tr>
-            <td>パスワード(確認用)</td>
+            <td>パスワード　(確認用)</td>
             <td>
               <%= f.password_field :password, autocomplete: "new-password"  %>
             </td>
