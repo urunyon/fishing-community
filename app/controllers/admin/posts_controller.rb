@@ -6,10 +6,10 @@ class Admin::PostsController < ApplicationController
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
       @posts = @genre.posts.page(params[:page]).per(8)
-      @posts_all = @genre.posts
+      @posts_all = @genre.posts.order(created_at: :desc)
     else
       @posts = Post.page(params[:page]).per(8)
-      @posts_all = Post.all
+      @posts_all = Post.all.order(created_at: :desc)
     end
   end
 
