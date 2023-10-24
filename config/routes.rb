@@ -29,11 +29,12 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    root to: 'homes#top'
-    resources :posts, only: [:index, :show, :destroy]
+    root to: 'posts#index'
+    resources :posts, only: [:index, :show, :edit, :update, :destroy]
       resources :comments, only: [:destroy]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :users, only: [:index, :show, :edit, :update, :destroy]
+    get "search" => "searches#search"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end

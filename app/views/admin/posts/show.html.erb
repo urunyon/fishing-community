@@ -1,7 +1,5 @@
-<div class="container">
-  <div class="row mx-auto">
-    <%= render 'admin/homes/genre', genres: @genres %>
-    <div class="col-lg-5 mt-4 pl-5 text-center">
+  <div class="row">
+    <div class='col-lg-3 mt-3 px-4'>
       <% if @post.errors.any? %>
         <%= @post.errors.count %>件のエラーが発生しました
         <ul>
@@ -10,28 +8,40 @@
           <% end %>
         </ul>
       <% end %>
-      <%= image_tag @post.get_post_image(500, 500), size: "350x250", class: "rounded" %>
-      <div class="col-lg-5 mt-4 pl-4">
-       <h3><strong><%= @post.title %></strong></h3>
+      
+      <!--レイアウトが崩れるため部分テンプレートを使用していない-->
+      <h2 class="text-center">
+        <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
+        <i class="fa-solid fa-otter fa-flip" style="color: #5c98ff;"></i>
+        <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
+        <i class="fa-solid fa-otter fa-flip" style="color: #5c98ff;"></i>
+        <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
+      </h2>
+        <%= render 'admin/homes/genre', genres: @genres %>
+    </div>
+
+    <div class="col-lg-6 mt-3 text-center">
+      <h2>投稿詳細</h2>
+      <%= image_tag @post.get_post_image(500, 500), size: "300x300", class: "rounded" %>
+       <h3>タイトル：<strong><%= @post.title %></strong></h3>
+       <p>投稿者：<%= link_to @post.user.nickname, admin_user_path(@post.user) %></p>
        <h4>投稿内容</h4>
         <p><%= simple_format(@post.body)%></p>
-        <%= link_to admin_post_path(@post), method: :delete do %>
-          <%= "投稿削除" %>
-        <% end %>
-      </div>
-      <div>
         <p>
+         <%= link_to "投稿編集", edit_admin_post_path(@post) %>
+           |
+         <%= link_to admin_post_path(@post), method: :delete, data: { confirm: '投稿を削除しますか？' } do %>
+          <%= "投稿削除" %>
+         <% end %>
+        </P>
+      </div>
+      <div class="col-lg-3 mt-3 ">
+        <div>
           ♡<%= @post.favorites.count %> いいね
-        </p>
-        <p>コメント件数：<%= @post.comments.count %></p>
-        <% @post.comments.each do |comment| %>
-          <%#= image_tag post_comment.user.get_profile_image(100,100) %>
-          <%= comment.user.name %>
-          <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-          <%= link_to "削除", admin_comment_path(comment.id), confirm:'このコメントを削除しますか？', method: :delete %>
-          <%#= link_to 'コメントを削除する', admin_comment_path(@post, comment), confirm: 'Are you sure?', method: :delete %>
-        <% end %>
+        </div>
+        <td>コメント件数:<span id="comment_count"><%= @post.comments.count %></span></td>
+        <div id="comments">
+          <%= render "admin/comments/comment" , { post: @post , comment: @comment } %><br>
+        </div>
       </div>
     </div>
-  </div>
-</div>

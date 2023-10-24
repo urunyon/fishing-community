@@ -7,6 +7,8 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts
+    @user_posts = @posts.page(params[:page]).per(10)
   end
 
   def edit

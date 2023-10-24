@@ -1,0 +1,41 @@
+<div class="d-inline-flex flex-column">
+<% post.comments.each do |comment| %>
+  <% comment_user = comment.user %>
+    <div class="d-flex">
+     
+      <table class=" text-center mt-3 mb-5">
+        <tr>
+          <th>コメント者：</th>
+          <td><%= comment.user.nickname %></td>
+        </tr> 
+        <tr>
+          <th>コメント日：</th>
+          <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <th>コメント：</th>
+          <td><%= comment.comment %></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>
+    	    <%= link_to "削除", admin_comment_path(comment.id), confirm:'このコメントを削除しますか？', method: :delete %>
+  	     </td>
+        </tr>
+      </table>
+
+    </div>
+  <% end %>
+</div>
+
+
+<style media="screen">
+    th,td{
+      border:1px #333 solid; 
+      padding:8px 16px;
+    }
+    table{
+      border-collapse: collapse;
+      background-color: #4FFFB0;
+    }
+</style>

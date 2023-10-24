@@ -1,13 +1,9 @@
 class Admin::CommentsController < ApplicationController
   before_action :authenticate_admin!
 
+  #管理者側はコメント削除時は確認を入れるために同期通信してる
   def destroy
-    #@post = Post.find(params[:id])
-    #指定したコメントを削除する
     Comment.find(params[:id]).destroy
-    #comment = @post.comments.find(params[:id])
-    #comment.destroy
-    #redirect_to admin_post_path(params[:post_id])
     #投稿詳細に戻る
     redirect_back fallback_location: root_path
   end
