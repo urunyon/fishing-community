@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <div class="mb-5 pl-5">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10 text-center">
+      <div class="my-5 px-5">
         <% if @genre.errors.any? %>
           <ul class="alert alert-danger" role="alert">
             <h6 class="alert-heading">
@@ -12,24 +13,36 @@
             <% end %>
           </ul>
         <% end %>
-        <h4><span class="back"><strong>ジャンル一覧・追加</strong></span></h4>
+        <h4>
+          <i class="fa-solid fa-radiation fa-spin" style="color: #55bf1d;"></i>
+          <span class="back">
+           <strong>
+            ジャンル一覧・追加
+           </strong>
+          </span>
+          <i class="fa-solid fa-radiation fa-spin fa-spin-reverse" style="color: #55bf1d;"></i>
+        </h4>
       </div>
       <div class="mb-5">
         <%= form_with model: @genre, url: admin_genres_path do |f| %>
-          <div class="mr-5 d-inline-block">ジャンル名</div>
-          <div class="mr-5 d-inline-block"><%= f.text_field :genre_name, placeholder: "ジャンル名" %></div>
+          <div class="mx-5 d-inline-block">ジャンル名</div>
+          <div class="mx-5 d-inline-block"><%= f.text_field :genre_name, placeholder: "ジャンル名" %></div>
           <%= f.submit "新規登録", class:"btn btn-success" %>
         <% end %>
       </div>
     </div>
+    <div class="col-lg-1"></div>
   </div>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
       <table class="table">
-        <thead style="background-color: #f5f5f5;">
-          <tr>
-            <th class="text-center">ジャンル</th>
-            <th></th>
+        <thead style="background-color: #00FFFF;">
+          <!--テーブルセル二つ合体-->
+          <tr class="table-active">
+            <th colspan="2" class="table-active text-center">
+              ジャンル一覧
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -46,5 +59,6 @@
         </tbody>
       </table>
     </div>
+    <div class="col-lg-4"></div>
   </div>
 </div>
