@@ -1,6 +1,7 @@
-<div>
+<table>
+  <td>
     <label>都市名：</label>
-    <input id="cityname" type="text" size="10" maxlength="14" placeholder="Tokyo">
+    <input id="cityname" type="text" size="10" maxlength="14" placeholder="Sumoto">
     <button id="btn">検索</button><br>
     <span>場所 :</span>
     <span id="place"></span><br>
@@ -20,5 +21,17 @@
     <span id="weather"></span>
     <div id="icon"><img id="img"></div>
     <div id='key' style='display:none'><%=ENV['API_KEY']%></div>
-</div>
+  </td>
+</table>
 
+<style>
+    td{
+      border:1px #333 solid; 
+      padding:8px 16px;
+    }
+
+    table{
+      border-collapse: collapse;
+      background-color: #4FFFB0;
+    }
+</style>

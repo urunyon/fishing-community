@@ -2,8 +2,8 @@
 <% post.comments.each do |comment| %>
   <% comment_user = comment.user %>
     <div class="d-flex">
-
-      <table class="table  text-center mt-3 mb-5">
+     
+      <table class=" text-center mt-3 mb-5">
         <tr>
           <th>コメント者：</th>
           <td><%= comment.user.nickname %></td>
@@ -17,6 +17,7 @@
           <td><%= comment.comment %></td>
         </tr>
         <tr>
+          <th></th>
           <td>
          <% if current_user == comment_user %>
     	    <%= link_to '削除', post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %>
@@ -33,9 +34,10 @@
 <style media="screen">
     th,td{
       border:1px #333 solid; 
-      padding:8px 16px; //余白をつける
+      padding:8px 16px;
     }
     table{
       border-collapse: collapse;
+      background-color: #4FFFB0;
     }
-  </style>
+</style>
