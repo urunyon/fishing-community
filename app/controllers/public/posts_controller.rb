@@ -23,13 +23,9 @@ class Public::PostsController < ApplicationController
     @genres = Genre.all
     if params[:genre_id]
       @genre = Genre.find(params[:genre_id])
-      @posts = @genre.posts.page(params[:page]).per(8)
-      @posts_all = @genre.posts
-      @posts_all = Post.all.order(created_at: :desc)
+      @posts = @genre.posts.page(params[:page]).per(8).order(created_at: :desc)
     else
-      @posts = Post.page(params[:page]).per(8)
-      @posts_all = Post.all
-      @posts_all = Post.all.order(created_at: :desc)
+      @posts = Post.page(params[:page]).per(8).order(created_at: :desc)
     end
   end
 
@@ -59,7 +55,7 @@ class Public::PostsController < ApplicationController
     @post.destroy
     redirect_to public_posts_path
   end
-
+  
   def ensure_correct_user
     @post = Post.find_by(id: params[:id])
     return unless @post.user_id != current_user.id

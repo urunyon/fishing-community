@@ -5,7 +5,7 @@ class Admin::SearchesController < ApplicationController
     @model = params[:model]
     @content = params[:content]
     @method = params[:method]
-    @records = Post.search_for(@content, @method)
+    @records = Post.search_for(@content, @method).order(created_at: :desc)
     @genres = Genre.all
   end
   

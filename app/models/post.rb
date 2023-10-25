@@ -10,6 +10,9 @@ class Post < ApplicationRecord
   validates :body, presence: true, length: { maximum: 150 }
   validates :post_image, presence: true
 
+  scope :latest, -> { order(created_at: :desc) }  #desc = 降順
+  scope :old, -> { order(created_at: :asc) }  #asc = 昇順
+
   def get_post_image(width, height)
     unless post_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.png')
