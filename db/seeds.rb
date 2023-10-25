@@ -14,8 +14,8 @@ Admin.create!(
  #ユーザーテストアカウント
 User.create!(
  user_id: 1,
- name: '釣人　太郎',
- nickname: 'エギキング',
+ name: 'ゲスト　ゲスト',
+ nickname: 'ゲスト',
  email: 'user@gmail.com',
  password:              '123123',
  password_confirmation: '123123'
