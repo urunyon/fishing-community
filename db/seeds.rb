@@ -13,7 +13,7 @@ Admin.create!(
 )
  #ユーザーゲストアカウント
 User.create!(
- name: 'ゲスト　ゲスト',
+ name: '釣人  太郎',
  nickname: 'ゲスト',
  email: 'user@gmail.com',
  password:              '123123',
