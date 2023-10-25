@@ -12,4 +12,8 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :email, presence: true, uniqueness: true
   
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+  
 end

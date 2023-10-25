@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 mx-auto">
+      <%= flash[:error] %>
       <h2 class="mt-8 mb-3">ログイン</h2>
       <h5 class="back"><strong>会員の方はこちらからログイン</strong></h5>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
