@@ -9,7 +9,11 @@
       </p>
       <div class="text-center">
         <%= link_to "退会しない", user_path(current_user), class:"btn btn-primary" %>
+        <% if current_user == User.find_by(params[1]) %>
+        <font color="red">ゲストユーザーは退会できません。</font>
+        <% else %>
         <%= link_to "退会する", withdrawal_user_path(@user), method: :patch, class:"btn btn-danger" %>
+        <% end %>
       </div>
     </div>
   </div>
