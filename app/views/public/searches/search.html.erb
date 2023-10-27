@@ -3,12 +3,11 @@
   <%= render 'public/homes/side', genres: @genres %>
 
   <div class='col-lg-9 mt-3 pr-3'>
-          <h2 class="text-center">検索ワード： "<%= @content %>" </h2>
+    <h2 class="text-center">検索ワード： "<%= @content %>" </h2>
     <div class="text-center">
-    <%= render 'public/searches/search' %>
+      <%= render 'public/searches/search' %>
     </div>
     <%= render 'public/posts/post_image', posts: @records %>
   </div>
   
-
 </div>

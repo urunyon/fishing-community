@@ -15,25 +15,25 @@
       <% if current_user == User.find_by(params[1]) %>
       <h2><font color="red">ゲストユーザー情報は編集できません。</font></h2>
       <% else %>
-      <%= form_with model: @user, url: user_path, local: true, method: :patch do |f| %>
-      <div class="col-xs-10">
-        <div class="form-group">
-          <%= f.label :氏名, class:"col-sm-4 control-label" %>
-          <%= f.text_field :name, class:"col-sm-5" %>
+        <%= form_with model: @user, url: user_path, local: true, method: :patch do |f| %>
+        <div class="col-xs-10">
+          <div class="form-group">
+            <%= f.label :氏名, class:"col-sm-4 control-label" %>
+            <%= f.text_field :name, class:"col-sm-5" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :ニックネーム, class:"col-sm-4 control-label" %>
+            <%= f.text_field :nickname, class:"col-sm-5" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :メールアドレス, class:"col-sm-4 control-label" %>
+            <%= f.text_field :email, class:"col-sm-5" %>
+          </div>
         </div>
-        <div class="form-group">
-          <%= f.label :ニックネーム, class:"col-sm-4 control-label" %>
-          <%= f.text_field :nickname, class:"col-sm-5" %>
+        <div class="margin-left">
+          <%= f.submit "変更を保存", class:"btn btn-success" %>
         </div>
-        <div class="form-group">
-          <%= f.label :メールアドレス, class:"col-sm-4 control-label" %>
-          <%= f.text_field :email, class:"col-sm-5" %>
-        </div>
-      </div>
-      <div class="margin-left">
-        <%= f.submit "変更を保存", class:"btn btn-success" %>
-      </div>
-    <% end %>
+      <% end %>
     <% end %>
     <%= link_to "退会", confirm_user_url, class:"btn btn-danger ml-5" %>
   </div>
