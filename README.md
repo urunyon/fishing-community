@@ -23,7 +23,9 @@
 - 釣果情報を他の釣り人と共有するとき
 ​
 ## 設計書
-後ほど作成予定
+UIフロー、ER図、ワイヤーフレーム
+- https://drive.google.com/file/d/1_i1fioMqk96MyNTzEtMSB0DebigAUfyX/view?usp=sharing
+
 ​
 ## 開発環境
 - OS：Linux(CentOS)
