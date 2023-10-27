@@ -1,10 +1,12 @@
 <details class="details js-details">
-  <summary class="details-summary">ジャンル一覧▼</summary>
+  <summary class="details-summary">
+  	ジャンル一覧▼
+  </summary>
   <div class="details-content">
     <% genres.each do |genre| %>
       <li class="list-group-item border-top:1px solid #666;", style="background-color: #ffff56;">
       	<font size="5" face="Comic Sans MS">
-        <%= link_to genre.genre_name, posts_path(genre_id: genre.id) %>
+          <%= link_to genre.genre_name, posts_path(genre_id: genre.id) %>
         </font>
       </li>
     <% end %>

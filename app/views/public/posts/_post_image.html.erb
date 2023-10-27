@@ -7,7 +7,13 @@
       <div class="card-body">
         <p class="card-title">
           <%= link_to post_path(post) do %>
-            <strong><i class="fa-solid fa-fish fa-spin" style="color: #3475e5;"></i><span> <%= post.title %><i class="fa-solid fa-fish fa-spin" style="color: #3475e5;"></i></span></strong>
+            <strong>
+              <span>
+                <i class="fa-solid fa-fish fa-spin" style="color: #3475e5;"></i>
+                  <%= post.title %>
+                <i class="fa-solid fa-fish fa-spin" style="color: #3475e5;"></i>
+              </span>
+            </strong>
           <% end %>
         </p>
         <p class="card-name">Name: <span><%= post.user.nickname %></span></p>

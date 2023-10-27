@@ -1,47 +1,48 @@
-  <div class="row">
-    <div class='col-lg-3 mt-3 px-4'>
-      <% if @post.errors.any? %>
-        <%= @post.errors.count %>件のエラーが発生しました
-        <ul>
-          <% @post.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
+<div class="row">
+  <div class='col-lg-3 mt-3 px-4'>
+    <% if @post.errors.any? %>
+      <%= @post.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
       
-      <!--レイアウトが崩れるため部分テンプレートを使用していない-->
-      <h2 class="text-center">
-        <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
-        <i class="fa-solid fa-otter fa-flip" style="color: #5c98ff;"></i>
-        <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
-        <i class="fa-solid fa-otter fa-flip" style="color: #5c98ff;"></i>
-        <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
-      </h2>
-        <%= render 'admin/homes/genre', genres: @genres %>
-    </div>
+    <!--レイアウトが崩れるため部分テンプレートを使用していない-->
+    <h2 class="text-center">
+      <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
+      <i class="fa-solid fa-otter fa-flip" style="color: #5c98ff;"></i>
+      <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
+      <i class="fa-solid fa-otter fa-flip" style="color: #5c98ff;"></i>
+      <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
+    </h2>
+    <%= render 'admin/homes/genre', genres: @genres %>
+  </div>
 
-    <div class="col-lg-6 mt-3 text-center">
-      <h2>投稿詳細</h2>
-      <%= image_tag @post.get_post_image(500, 500), size: "300x300", class: "rounded" %>
-       <h3>タイトル：<strong><%= @post.title %></strong></h3>
-       <p>投稿者：<%= link_to @post.user.nickname, admin_user_path(@post.user) %></p>
-       <h4>投稿内容</h4>
-        <p><%= simple_format(@post.body)%></p>
-        <p>
-         <%= link_to "投稿編集", edit_admin_post_path(@post) %>
-           |
-         <%= link_to admin_post_path(@post), method: :delete, data: { confirm: '投稿を削除しますか？' } do %>
-          <%= "投稿削除" %>
-         <% end %>
-        </P>
-      </div>
-      <div class="col-lg-3 mt-3 ">
-        <div>
-          ♡<%= @post.favorites.count %> いいね
-        </div>
-        <td>コメント件数:<span id="comment_count"><%= @post.comments.count %></span></td>
-        <div id="comments">
-          <%= render "admin/comments/comment" , { post: @post , comment: @comment } %><br>
-        </div>
-      </div>
+  <div class="col-lg-6 mt-3 text-center">
+    <h2>投稿詳細</h2>
+    <%= image_tag @post.get_post_image(500, 500), size: "300x300", class: "rounded" %>
+    <h3>タイトル：<strong><%= @post.title %></strong></h3>
+    <p>投稿者：<%= link_to @post.user.nickname, admin_user_path(@post.user) %></p>
+    <h4>投稿内容</h4>
+    <p><%= simple_format(@post.body)%></p>
+    <p>
+      <%= link_to "投稿編集", edit_admin_post_path(@post) %>
+       |
+      <%= link_to admin_post_path(@post), method: :delete, data: { confirm: '投稿を削除しますか？' } do %>
+        <%= "投稿削除" %>
+      <% end %>
+    </P>
+  </div>
+  
+  <div class="col-lg-3 mt-3 ">
+    <div>
+      ♡<%= @post.favorites.count %> いいね
     </div>
+    <td>コメント件数:<span id="comment_count"><%= @post.comments.count %></span></td>
+    <div id="comments">
+      <%= render "admin/comments/comment" , { post: @post , comment: @comment } %><br>
+    </div>
+  </div>
+</div>

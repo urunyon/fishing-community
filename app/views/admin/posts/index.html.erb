@@ -1,24 +1,24 @@
-  <div class="row">
-    <div class='col-lg-3 mt-3 px-4'>
-      <h2 class="text-center">
-        <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
-        <i class="fa-solid fa-otter fa-flip" style="color: #5c98ff;"></i>
-        <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
-        <i class="fa-solid fa-otter fa-flip" style="color: #5c98ff;"></i>
-        <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
-      </h2>
-        <%= render 'admin/homes/genre', genres: @genres %>
-    </div>
+<div class="row">
+  <div class='col-lg-3 mt-3 px-4'>
+    <h2 class="text-center">
+      <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
+      <i class="fa-solid fa-otter fa-flip" style="color: #5c98ff;"></i>
+      <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
+      <i class="fa-solid fa-otter fa-flip" style="color: #5c98ff;"></i>
+      <i class="fa-solid fa-otter fa-bounce" style="color: #e684cc;"></i>
+    </h2>
+      <%= render 'admin/homes/genre', genres: @genres %>
+  </div>
 
   <div class='col-lg-9 mt-3 pr-3'>
     <% if params[:genre_id] %>
-          <h2 class="text-center"><%= @genre.genre_name %> 一覧 (全 <%= @genre_posts_all.count %> 件)</h2>
+      <h2 class="text-center"><%= @genre.genre_name %> 一覧 (全 <%= @genre_posts_all.count %> 件)</h2>
     <% else %>
-          <h2 class="text-center">投稿一覧 (全 <%= @posts_all.count %> 件)</h2>
+      <h2 class="text-center">投稿一覧 (全 <%= @posts_all.count %> 件)</h2>
     <% end %>
-    <div class="text-center">
-    <%= render 'admin/searches/search' %>
-    </div>
+      <div class="text-center">
+        <%= render 'admin/searches/search' %>
+      </div>
     <%= render 'admin/posts/post_image', posts: @posts %>
     <div class="text-center"><%= paginate @posts %></div>
   </div>

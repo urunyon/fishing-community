@@ -1,126 +1,127 @@
 <!DOCTYPE html>
 <html lang="ja">
+
   <head>
     <title>Turibito AWAJI</title>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <script src="https://kit.fontawesome.com/a8dbaf925a.js" crossorigin="anonymous"></script>
-    
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
   </head>
 
   <body class="d-flex flex-column">
-   <div id="wrap">
-    <div class=" gradientHeader custom-body ">
-    <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container ">
+    <div id="wrap">
 
-          <%= link_to root_path, class: "mx-0" do %>
-            <%= image_tag "logo.png", alt: "LOGO", size: "90x65" %>
-          <% end %>
-          <% if user_signed_in? %>
-            <div class="d-flex align-items-center justify-content-center" style="flex: 1;">
-              <p class="mx-2 text-secondary p-centered">ようこそ、<%= current_user.nickname %> さん！</p>
-            </div>
-          <% end %>
-
-
-             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+      <div class=" gradientHeader custom-body ">
+        <header class="shadow-sm">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container ">
+              <%= link_to root_path, class: "mx-0" do %>
+                <%= image_tag "logo.png", alt: "LOGO", size: "90x65" %>
+              <% end %>
+              <% if user_signed_in? %>
+                <div class="d-flex align-items-center justify-content-center" style="flex: 1;">
+                  <p class="mx-2 text-secondary p-centered">
+                    ようこそ、<%= current_user.nickname %> さん！
+                  </p>
+                </div>
+              <% end %>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-              <% if admin_signed_in? %>
-                <% if request.fullpath.include? "/admin" %>
-                  <li class="nav-item">
+                <ul class="navbar-nav ml-auto">
+                  <% if admin_signed_in? %>
+                    <% if request.fullpath.include? "/admin" %>
+                      <li class="nav-item">
                     <%= link_to "投稿一覧", admin_posts_path, class: "btn nav-link ml-2" %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to "会員一覧", admin_users_path, class: "btn nav-link ml-2" %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to "ジャンル一覧", admin_genres_path, class: "btn nav-link ml-2" %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn nav-link ml-2" %>
-                  </li>
-                <% else %>
-                  <li class="nav-item">
-                    <%= link_to "投稿一覧", posts_path, class: "btn nav-link ml-2" %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to "ABOUT", about_path, class: "btn nav-link ml-2" %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to "会員登録", new_user_registration_path, class: "btn nav-link ml-2" %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn nav-link ml-2" %>
-                  </li>
-                <% end %>
-              <% elsif user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to "いいね一覧", favorites_user_path(current_user), class: "btn nav-link ml-2" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "投稿一覧", posts_path, class: "btn nav-link ml-2" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "新規投稿", new_post_path, class: "btn nav-link ml-2" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "マイページ", user_path(current_user), class: "btn nav-link ml-2" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn nav-link ml-2" %>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to "投稿一覧", posts_path, class: "btn nav-link ml-2" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ABOUT", about_path, class: "btn nav-link ml-2" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "会員登録", new_user_registration_path, class: "btn nav-link ml-2" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログイン", new_user_session_path, class: "btn nav-link ml-2" %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    </div>
-    
-    <div class="background custom-body ">
-     <span class="flash"><%= notice %></span>
-      <%= yield %>
-    </div>
-    
-    <div class=" gradientFooter ">
-    <footer class="text-white pt-5 pb-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <p>Fishing LIFE </p>
-            <%= image_tag "logo.png", alt: "LOGO", size: "75x50" %>
-          </div>
-          <div class="col-md-8">
-            <h2 class="text-white mt-2 mb-3">釣人～淡路～</h2>
-            <p>Portfolio Site</p>
-          </div>
-        </div>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to "会員一覧", admin_users_path, class: "btn nav-link ml-2" %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to "ジャンル一覧", admin_genres_path, class: "btn nav-link ml-2" %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn nav-link ml-2" %>
+                      </li>
+                    <% else %>
+                      <li class="nav-item">
+                        <%= link_to "投稿一覧", posts_path, class: "btn nav-link ml-2" %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to "ABOUT", about_path, class: "btn nav-link ml-2" %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to "会員登録", new_user_registration_path, class: "btn nav-link ml-2" %>
+                      </li>
+                      <li class="nav-item">
+                        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn nav-link ml-2" %>
+                      </li>
+                    <% end %>
+                  <% elsif user_signed_in? %>
+                    <li class="nav-item">
+                      <%= link_to "いいね一覧", favorites_user_path(current_user), class: "btn nav-link ml-2" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "投稿一覧", posts_path, class: "btn nav-link ml-2" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "新規投稿", new_post_path, class: "btn nav-link ml-2" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "マイページ", user_path(current_user), class: "btn nav-link ml-2" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn nav-link ml-2" %>
+                    </li>
+                  <% else %>
+                    <li class="nav-item">
+                      <%= link_to "投稿一覧", posts_path, class: "btn nav-link ml-2" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "ABOUT", about_path, class: "btn nav-link ml-2" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "会員登録", new_user_registration_path, class: "btn nav-link ml-2" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "ログイン", new_user_session_path, class: "btn nav-link ml-2" %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </header>
       </div>
-    </footer>
-    </div>
+
+      <div class="background custom-body ">
+        <span class="flash"><%= notice %></span>
+          <%= yield %>
+       </div>
+
+       <div class=" gradientFooter ">
+         <footer class="text-white pt-5 pb-4">
+           <div class="container">
+             <div class="row">
+               <div class="col-md-4">
+                 <p>Fishing LIFE </p>
+                 <%= image_tag "logo.png", alt: "LOGO", size: "75x50" %>
+               </div>
+               <div class="col-md-8">
+                <h2 class="text-white mt-2 mb-3">釣人～淡路～</h2>
+                <p>Portfolio Site</p>
+               </div>
+             </div>
+           </div>
+         </footer>
+
+       </div>
     </div>
   </body>
+
 </html>

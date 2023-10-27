@@ -4,7 +4,7 @@
       <h1 class="pt-4 pl-4 pb-5 text-center">
         <font color="green">
         <i class="fa-solid fa-fish-fins fa-beat" style="color: #4b7fd8;"></i>
-        釣り人～淡路～
+          釣り人～淡路～
         <i class="fa-solid fa-fish-fins fa-beat" style="color: #4b7fd8;"></i>
         </font>
       </h1>
@@ -17,14 +17,14 @@
         投稿の一覧はログインなしでも閲覧可能ですが、<br>
         すべての機能を利用する際は<%= link_to 'こちら',new_user_session_path %>からログインを行ってください。
       </p>
-        <% if current_user = signed_in? %>
-        <!--アバウトページはログイン後のルーティングにないため消している-->
-        <% else %>
+      <% if current_user = signed_in? %>
+      <!--アバウトページはログイン後のルーティングにないため消している-->
+      <% else %>
         <p class="text-center">
           また、ヘッダー記載の<%= link_to 'ABOUT', about_path %>より、ゲストログイン及び<br>
-           管理者ログイン含むサイト概要を記載しております。
+          管理者ログイン含むサイト概要を記載しております。
         </p>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
