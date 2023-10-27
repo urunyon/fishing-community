@@ -23,7 +23,11 @@
 - 釣果情報を他の釣り人と共有するとき
 ​
 ## 設計書
-後ほど作成予定
+UIフロー、ER図、ワイヤーフレーム
+- https://drive.google.com/file/d/1_i1fioMqk96MyNTzEtMSB0DebigAUfyX/view?usp=sharing
+
+詳細設計書
+- https://docs.google.com/spreadsheets/d/1egNKU3rqhRPfQyPANy_kNPDZIFWsZzHotqcdiUZw4Mo/edit#gid=1304904672
 ​
 ## 開発環境
 - OS：Linux(CentOS)
