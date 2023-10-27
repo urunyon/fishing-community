@@ -8,14 +8,14 @@
 
  #adminアカウント
 Admin.create!(
- email: 'admin@gmail.com',
+ email: 'admin@test',
  password: '123123'
 )
  #ユーザーゲストアカウント
 User.create!(
  name: '釣人  太郎',
  nickname: 'ゲスト',
- email: 'user@gmail.com',
+ email: 'user@test',
  password:              '123123',
  password_confirmation: '123123'
 )

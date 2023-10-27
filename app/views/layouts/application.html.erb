@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/a8dbaf925a.js" crossorigin="anonymous"></script>
+    
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
@@ -123,37 +124,3 @@
     </div>
   </body>
 </html>
-
-<style>
-.background { 
-background: #B2FFFF;
-min-height: 70vh;
-}
-
-.gradientHeader { 
-background: rgb(196,238,174);
-background: radial-gradient(circle, rgba(196,238,174,1) 0%, rgba(80,239,218,1) 100%);
-border: 1px solid #0000ff;
-}
-
-.gradientFooter { 
-background: rgb(33,157,158);
-background: linear-gradient(180deg, rgba(33,157,158,1) 0%, rgba(8,21,59,1) 100%);
-border: 1px solid #0000ff;
-}
-
-#wrap {
-  overflow: hidden;
-}
-
-body,
-#wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
- 
-footer {
-  margin-top: auto;
-}
-</style>

@@ -53,7 +53,7 @@ class Public::PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to public_posts_path
+    redirect_to posts_path
   end
   
   def ensure_correct_user

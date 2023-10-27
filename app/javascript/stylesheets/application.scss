@@ -1,1 +1,77 @@
 @use '~bootstrap/scss/bootstrap';
+
+.background { 
+background: #B2FFFF;
+min-height: 70vh;
+}
+
+.gradientHeader { 
+background: rgb(196,238,174);
+background: radial-gradient(circle, rgba(196,238,174,1) 0%, rgba(80,239,218,1) 100%);
+border: 1px solid #0000ff;
+}
+
+.gradientFooter { 
+background: rgb(33,157,158);
+background: linear-gradient(180deg, rgba(33,157,158,1) 0%, rgba(8,21,59,1) 100%);
+border: 1px solid #0000ff;
+}
+
+#wrap {
+  overflow: hidden;
+}
+
+body,
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+span.sample1 {
+    font-family: "ＭＳ Ｐ明朝"
+}
+
+h1, h2, h3, h4, p {
+  font-family: "ＭＳ Ｐ明朝"
+}
+
+.details {
+	border-top: 2px solid #00a5a0;
+	border-left: 2px solid #00a5a0;
+	border-right: 2px solid #00a5a0;
+	&:last-of-type {
+		border-bottom: 2px solid #00a5a0;
+	}
+}
+.details-summary {
+	position: relative;
+	display: block;
+	padding: 20px;
+	color: #0053f9;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #cedb41;
+	&:hover {
+		cursor: pointer;
+		opacity: 0.8;
+	}
+}
+
+.details-content {
+  background-color: #A7F1FF;
+	p {
+		margin: 0 0 20px;
+		color: #000;
+		font-size: 18px;
+		text-align: left;
+		&:last-of-type {
+			margin: 0 0 0;
+		}
+	}
+}
+
+footer {
+  margin-top: auto;
+}

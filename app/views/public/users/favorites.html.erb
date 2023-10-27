@@ -1,13 +1,14 @@
+
 <div class='row'>
-  <div class='col-lg-3 mt-3 px-4'>
-    <h2 class="text-center">現在の天気情報</h2>
-    <%= render 'public/homes/weather' %>
-    <h2 class="text-center">ジャンル</h2>
-    <%= render 'public/homes/genre', genres: @genres %>
-  </div>
+
+  <%= render 'public/homes/side', genres: @genres %>
 
   <div class='col-lg-9 mt-3 pr-3'>
-    <h2 class="text-center">いいね一覧 (全 <%= @favorite_posts.count %> 件)</h2>
+    <% if params[:genre_id] %>
+          <h2 class="text-center"><%= @genre.genre_name %> 一覧 (全 <%= @posts.count %> 件)</h2>
+    <% else %>
+          <h2 class="text-center">いいね一覧 (全 <%= @favorite_posts.count %> 件)</h2>
+    <% end %>
     <div class="text-center">
     <%= render 'public/searches/search' %>
     </div>
@@ -20,17 +21,17 @@
           <div class="card-body">
             <p class="card-title">
               <%= link_to post_path(post) do %>
-                <strong><i class="far fa-flag"></i><span> <%= post.title %></span></strong>
+                <strong><i class="fa-solid fa-fish fa-spin" style="color: #3475e5;"></i><span> <%= post.title %><i class="fa-solid fa-fish fa-spin" style="color: #3475e5;"></i></span></strong>
               <% end %>
             </p>
             <p class="card-name">Name: <span><%= post.user.nickname %></span></p>
+            <p class="card-name">投稿日: <%= post.created_at.strftime("%Y/%m/%d") %></p>
             <p class="card-text"><%= post.body %></p>
           </div>
         </div>
       <% end %>
     </div>
-    <%= paginate @posts, class: "text-center" %>
+    <div class="text-center"><%= paginate @posts %></div>
   </div>
-  
 
 </div>
