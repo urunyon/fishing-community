@@ -7,6 +7,11 @@ ja:
             email:
               blank: を入力してください
     attributes:
+      post:
+        genre: ジャンル
+        title: タイトル
+        body: 投稿内容
+        post_image: 掲載画像
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
