@@ -1,11 +1,11 @@
 class Admin::CommentsController < ApplicationController
   before_action :authenticate_admin!
 
-  #管理者側はコメント削除時は確認を入れるために同期通信してる
   def destroy
+    #指定したコメントを削除する
     Comment.find(params[:id]).destroy
     #投稿詳細に戻る
-    redirect_back fallback_location: root_path
+    redirect_back fallback_location: root_path, notice: "コメントを削除しました。"
   end
 
 

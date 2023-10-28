@@ -19,7 +19,7 @@
           <th></th>
           <td>
          <% if current_user == comment_user %>
-    	    <%= link_to '削除', post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %>
+    	    <%= link_to '削除', post_comment_path(comment.post_id, comment.id), class: 'btn-sm btn-danger', data: { confirm: "【確認】コメントを削除してもよろしいですか？" }, method: :delete, remote: true %>
   	     <% end %>
   	     </td>
         </tr>
