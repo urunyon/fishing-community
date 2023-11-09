@@ -8,6 +8,12 @@ class Public::PostsController < ApplicationController
   end
 
   def create
+    s3 = Aws::S3::Resource.new
+
+    # アップロードされた画像をS3バケットに保存する
+    obj = s3.bucket('fishing-community-bucket').object(params[:post_image].original_filename)
+    obj.upload_file(params[:post_image].tempfile, acl:'public-read')
+    
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save

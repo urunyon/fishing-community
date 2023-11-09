@@ -71,3 +71,5 @@ gem "net-imap"
 group :development, :test do
     gem 'faker'
 end
+
+gem 'aws-sdk-s3'
