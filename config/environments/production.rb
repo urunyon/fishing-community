@@ -39,9 +39,6 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :amazon
-  config.aws_access_key_id = ENV['AWS_ACCESS_KEY_ID']
-  config.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-  config.aws_region = ENV['AWS_REGION']
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
