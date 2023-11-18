@@ -60,8 +60,8 @@
         </strong>
       </h3>
       <div class="text-center">
-         {<%= link_to '新着順', user_path(@user, latest: "true") %>}
-         {<%= link_to '古い順', user_path(@user, old: "true") %>}
+         {<%= link_to '新着順', admin_user_path(@user, latest: "true") %>}
+         {<%= link_to '古い順', adminuser_path(@user, old: "true") %>}
       </div>
       <%= render 'admin/posts/post_image', posts: @posts %>
       <div class="text-center">
