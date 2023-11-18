@@ -21,15 +21,39 @@ class Public::PostsController < ApplicationController
 
   def index
     @genres = Genre.all
-    if params[:genre_id]
-      @genre = Genre.find(params[:genre_id])
-      @posts = @genre.posts.page(params[:page]).per(8).order(created_at: :desc)
-      #特定ジャンル別の投稿を全て数えるため
-      @genre_posts_all = @genre.posts
+    if params[:latest]
+      if params[:genre_id]
+        @genre = Genre.find(params[:genre_id])
+        @posts = @genre.posts.page(params[:page]).per(8).latest
+        #特定ジャンル別の投稿を全て数えるため
+        @genre_posts_all = @genre.posts
+      else
+        @posts = Post.page(params[:page]).per(8).latest
+        #すべての投稿を数えるため
+        @posts_all = Post.all
+      end
+    elsif params[:old]
+      if params[:genre_id]
+        @genre = Genre.find(params[:genre_id])
+        @posts = @genre.posts.page(params[:page]).per(8).old
+        #特定ジャンル別の投稿を全て数えるため
+        @genre_posts_all = @genre.posts
+      else
+        @posts = Post.page(params[:page]).per(8).old
+        #すべての投稿を数えるため
+        @posts_all = Post.all
+      end
     else
-      @posts = Post.page(params[:page]).per(8).order(created_at: :desc)
-      #すべての投稿を数えるため
-      @posts_all = Post.all
+      if params[:genre_id]
+        @genre = Genre.find(params[:genre_id])
+        @posts = @genre.posts.page(params[:page]).per(8).order(created_at: :desc)
+        #特定ジャンル別の投稿を全て数えるため
+        @genre_posts_all = @genre.posts
+      else
+        @posts = Post.page(params[:page]).per(8).order(created_at: :desc)
+        #すべての投稿を数えるため
+        @posts_all = Post.all
+      end
     end
   end
 
@@ -59,7 +83,7 @@ class Public::PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path, notice: "投稿を削除しました。"
   end
-  
+
   def ensure_correct_user
     @post = Post.find_by(id: params[:id])
     return unless @post.user_id != current_user.id

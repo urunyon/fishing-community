@@ -11,6 +11,10 @@
     <div class="text-center">
       <%= render 'public/searches/search' %>
     </div>
+    <div class="text-center">
+     {<%= link_to '新着順', user_path(@user, latest: "true") %>}
+     {<%= link_to '古い順', user_path(@user, old: "true") %>}
+    </div>
     <div class="card-list-container px-3 py-5">
       <% @favorite_posts.each do |post| %>
         <div class="card w-50 mx-auto mt-4 shadow-lg">

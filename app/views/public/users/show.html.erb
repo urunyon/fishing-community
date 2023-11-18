@@ -48,11 +48,15 @@
        <h3 class="back text-center">
          <strong>
            <i class="fa-solid fa-pencil fa-shake" style="color: #15479d;"></i>
-           <%= (@user.nickname) %>さんの投稿一覧
+            <%= (@user.nickname) %>さんの投稿一覧
            <i class="fa-solid fa-pencil fa-shake" style="color: #15479d;"></i>
-          </strong>
-        </h3>
-        <%= render 'public/posts/post_image', posts: @posts %>
+         </strong>
+       </h3>
+       <div class="text-center">
+         {<%= link_to '新着順', user_path(@user, latest: "true") %>}
+         {<%= link_to '古い順', user_path(@user, old: "true") %>}
+       </div>
+       <%= render 'public/posts/post_image', posts: @posts %>
       <div class="text-center"><%= paginate @user_posts %></div>
     </div>
   </div>
