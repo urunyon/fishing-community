@@ -17,6 +17,8 @@
       <h2 class="text-center">投稿一覧 (全 <%= @posts_all.count %> 件)</h2>
     <% end %>
       <div class="text-center">
+       {<%= link_to '新着順', posts_path(latest: "true") %>}
+       {<%= link_to '古い順', posts_path(old: "true") %>}
         <%= render 'admin/searches/search' %>
       </div>
     <%= render 'admin/posts/post_image', posts: @posts %>

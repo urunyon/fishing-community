@@ -7,8 +7,14 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
-    @user_posts = @posts.page(params[:page]).per(10)
+    if params[:latest]
+      @posts = @user.posts.latest
+    elsif params[:old]
+      @posts = @user.posts.old
+    else
+      @posts = @user.posts
+    end
+    @user_posts = @posts.page(params[:page]).per(8)
   end
 
   def edit
