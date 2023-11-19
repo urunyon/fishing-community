@@ -14,7 +14,6 @@ class Post < ApplicationRecord
   scope :old, -> { order(created_at: :asc) }  #asc = 昇順
 
 
-
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
