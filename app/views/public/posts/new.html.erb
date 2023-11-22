@@ -26,12 +26,12 @@
 
      <div class="form-group col-xs-9">
       <%= f.label :タイトル, class:"col-sm-4" %>
-      <%= f.text_field :title, placeholder: "投稿タイトル", size: "30" %>
+      <%= f.text_field :title, placeholder: "投稿タイトル(15文字以内)", size: "30" %>
      </div>
 
      <div class="form-group col-xs-9">
       <%= f.label :投稿内容, class:"col-sm-4 control-label" %>
-      <%= f.text_area :body, placeholder: "コメント入力欄", size: "30x5" %>
+      <%= f.text_area :body, placeholder: "投稿内容(150文字以内)", size: "30x5" %>
      </div>
 
      <div class="form-group col-xs-9">
@@ -47,6 +47,9 @@
   </div>
  </div>
 </div>
+
+
+
 
 <style>
  .outer {

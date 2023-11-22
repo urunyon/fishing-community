@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :name, presence: true
-  validates :nickname, presence: true
+  validates :name, presence: true, length: { maximum: 15 }
+  validates :nickname, presence: true, length: { maximum: 15 }
   validates :email, presence: true, uniqueness: true
   
   def active_for_authentication?
