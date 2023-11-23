@@ -30,7 +30,7 @@ UIフロー、ER図、ワイヤーフレーム
 - https://docs.google.com/spreadsheets/d/1egNKU3rqhRPfQyPANy_kNPDZIFWsZzHotqcdiUZw4Mo/edit#gid=1304904672
 ​
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Linux(Amazon Linux2)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
