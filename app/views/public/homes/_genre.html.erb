@@ -5,9 +5,7 @@
   <div class="details-content">
     <% genres.each do |genre| %>
       <li class="list-group-item border-top:1px solid #666;", style="background-color: #ffff56;">
-      	<font size="5" face="Comic Sans MS">
           <%= link_to genre.genre_name, posts_path(genre_id: genre.id) %>
-        </font>
       </li>
     <% end %>
   </div>
@@ -27,6 +25,7 @@
 		border-bottom: 2px solid #00a5a0;
 	}
 }
+
 .details-summary {
 	position: relative;
 	display: block;

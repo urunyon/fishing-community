@@ -10,7 +10,7 @@
         <!--ゲストユーザーをユーザーIDで判別して弾いている-->
         <%= link_to "退会しない", user_path(current_user), class:"btn btn-primary" %>
         <% if current_user == User.find_by(params[1]) %>
-        <font color="red">ゲストユーザーは退会できません。</font>
+        <h2 style="color: red">ゲストユーザーは退会できません。</h2>
         <% else %>
         <%= link_to "退会する", withdrawal_user_path(@user), method: :patch, data: { confirm: "【確認】本当に退会してもよろしいですか" }, class:"btn btn-danger" %>
         <% end %>

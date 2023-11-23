@@ -1,12 +1,57 @@
 <details class="details js-details">
-  <summary class="details-summary">ジャンル一覧▼</summary>
+  <summary class="details-summary">
+  	ジャンル一覧▼
+  </summary>
   <div class="details-content">
     <% genres.each do |genre| %>
       <li class="list-group-item border-top:1px solid #666;", style="background-color: #ffff56;">
-      	<font size="5" face="Comic Sans MS">
-        <%= link_to genre.genre_name, admin_posts_path(genre_id: genre.id) %>
-        </font>
+          <%= link_to genre.genre_name, admin_posts_path(genre_id: genre.id) %>
       </li>
     <% end %>
   </div>
 </details>
+
+
+
+
+
+<style>
+
+.details {
+	border-top: 2px solid #00a5a0;
+	border-left: 2px solid #00a5a0;
+	border-right: 2px solid #00a5a0;
+	&:last-of-type {
+		border-bottom: 2px solid #00a5a0;
+	}
+}
+
+.details-summary {
+	position: relative;
+	display: block;
+	padding: 20px;
+	color: #0053f9;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	background-color: #cedb41;
+	&:hover {
+		cursor: pointer;
+		opacity: 0.8;
+	}
+}
+
+.details-content {
+  background-color: #A7F1FF;
+	p {
+		margin: 0 0 20px;
+		color: #000;
+		font-size: 18px;
+		text-align: left;
+		&:last-of-type {
+			margin: 0 0 0;
+		}
+	}
+}
+
+</style>

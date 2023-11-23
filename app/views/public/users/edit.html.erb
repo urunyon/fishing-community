@@ -14,7 +14,7 @@
       
       <h3 class="back"><strong><%= @user.nickname %>さんの会員情報編集</strong></h3>
         <% if current_user == User.find_by(params[1]) %>
-          <h2><font color="red">ゲストユーザー情報は編集できません。</font></h2>
+          <h2 style="color: red">ゲストユーザー情報は編集できません。</h2>
         <% else %>
           <%= form_with model: @user, url: user_path, local: true, method: :patch do |f| %>
     
