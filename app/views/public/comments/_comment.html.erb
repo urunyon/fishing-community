@@ -2,7 +2,7 @@
   <% post.comments.each do |comment| %>
     <% comment_user = comment.user %>
     <div class="d-flex">
-      <table class=" text-center w-30 mt-3 mb-5">
+      <table class=" text-center mt-3 mb-5">
         <tr>
           <th>コメント者：</th>
           <td><%= comment.user.nickname %></td>
